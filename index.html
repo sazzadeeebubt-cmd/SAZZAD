@@ -9,6 +9,7 @@
     body { scroll-behavior: smooth; }
   </style>
 </head>
+
 <body class="min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-black text-gray-100">
 
   <!-- Container -->
@@ -16,12 +17,24 @@
 
     <!-- Hero Section -->
     <section class="mb-16">
-      <div class="backdrop-blur-xl bg-white/5 rounded-3xl p-8 shadow-xl transition-all duration-500 hover:bg-white/10">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Sazzad Hossain</h1>
+      <div class="relative text-center backdrop-blur-xl bg-white/5 rounded-3xl p-8 pt-20 shadow-xl transition-all duration-500 hover:bg-white/10">
+
+        <!-- Profile Image -->
+        <div class="absolute -top-14 left-1/2 -translate-x-1/2">
+          <img
+            src="sazzad.jpg"
+            alt="Sazzad Hossain"
+            class="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover border-4 border-white/20 shadow-lg transition duration-500 hover:scale-105"
+          />
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 mt-4">Sazzad Hossain</h1>
+
         <p class="text-lg text-gray-300 mb-4">
           Electrical & Electronics Engineer • Web Developer • Graphics Designer
         </p>
-        <p class="text-gray-400 max-w-2xl">
+
+        <p class="text-gray-400 max-w-2xl mx-auto">
           Passionate about engineering and technology with hands-on experience in coding, electronics, and creative design. I enjoy building clean, functional web solutions and visually appealing designs.
         </p>
       </div>
@@ -59,18 +72,6 @@
         </div>
       </div>
 
-      <div class="backdrop-blur-xl bg-white/5 rounded-2xl p-6 shadow-lg transition duration-500 hover:scale-[1.02]">
-        <h2 class="text-2xl font-semibold mb-4">Skills</h2>
-        <div class="flex flex-wrap gap-3">
-          <span class="px-4 py-1 rounded-full bg-white/10 text-sm">HTML</span>
-          <span class="px-4 py-1 rounded-full bg-white/10 text-sm">JavaScript</span>
-          <span class="px-4 py-1 rounded-full bg-white/10 text-sm">Google Apps Script</span>
-          <span class="px-4 py-1 rounded-full bg-white/10 text-sm">C Programming</span>
-          <span class="px-4 py-1 rounded-full bg-white/10 text-sm">Adobe Photoshop</span>
-          <span class="px-4 py-1 rounded-full bg-white/10 text-sm">Adobe Illustrator</span>
-        </div>
-      </div>
-
       <!-- Interests -->
       <div class="backdrop-blur-xl bg-white/5 rounded-2xl p-6 shadow-lg transition duration-500 hover:scale-[1.02]">
         <h2 class="text-2xl font-semibold mb-4">Interests</h2>
@@ -82,8 +83,8 @@
       <!-- Contact -->
       <div class="backdrop-blur-xl bg-white/5 rounded-2xl p-6 shadow-lg transition duration-500 hover:scale-[1.02]">
         <h2 class="text-2xl font-semibold mb-4">Contact</h2>
-        <p class="text-gray-300 mb-2">Phone : +880 1743 43 77 72</p>
-        <p class="text-gray-300">Email : sazzad.eee.bubt@gmail.com</p>
+        <p class="text-gray-300 mb-2">📞 +880 1743 43 77 72</p>
+        <p class="text-gray-300">✉️ sazzad.eee.bubt@gmail.com</p>
       </div>
 
     </section>
@@ -97,4 +98,3 @@
 
 </body>
 </html>
-
