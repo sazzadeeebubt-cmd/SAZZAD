@@ -1,102 +1,239 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid Portfolio - Glassmorphism</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* --- 1. GENERAL STYLES & BACKGROUND --- */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --text-color: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.1); /* Lighter for glass effect */
+            --glass-border: rgba(255, 255, 255, 0.3);
+        }
 
-* {
-  box-sizing: border-box;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Deep Blue Gradient */
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+        }
 
-/* Style inputs */
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
+        /* --- 2. GLASS EFFECT STYLING (THE CORE) --- */
+        .glass-container {
+            background: var(--glass-bg);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px); /* THE KEY GLASS EFFECT PROPERTY */
+            -webkit-backdrop-filter: blur(10px); /* Safari support */
+            padding: 30px;
+            margin: 20px;
+            width: 80%;
+            max-width: 1100px;
+            transition: transform 0.3s ease-in-out;
+        }
 
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  cursor: pointer;
-}
+        .glass-container:hover {
+            transform: translateY(-5px); /* Subtle hover effect */
+        }
 
-input[type=submit]:hover {
-  background-color: #45a049;
-}
+        /* --- 3. LAYOUT & CONTENT STYLES --- */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-/* Style the container/contact section */
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 10px;
-}
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
 
-/* Create two columns that float next to eachother */
-.column {
-  float: left;
-  width: 50%;
-  margin-top: 6px;
-  padding: 20px;
-}
+        header p {
+            font-style: italic;
+            opacity: 0.8;
+        }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 5px 10px;
+            border-bottom: 2px solid transparent;
+            transition: border-bottom 0.3s;
+        }
 
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
-}
-</style>
+        nav a:hover {
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        section {
+            padding: 40px 0;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--glass-border);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        /* Style for the Font Awesome Icons */
+        .fa-solid, .fa-brands {
+            color: var(--primary-color); /* Apply primary color to the icon */
+            margin-right: 8px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .project-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .badge {
+            display: inline-block;
+            color: var(--text-color);
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            margin-bottom: 10px;
+        }
+
+        .engineer { background: #e74c3c; } /* Red for Engineering */
+        .designer { background: #3498db; } /* Blue for Design */
+
+        footer {
+            margin-top: 55px;
+            padding: 20px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.2);
+            width: 100%;
+        }
+
+        /* --- 4. RESPONSIVENESS --- */
+        @media (max-width: 768px) {
+            .glass-container {
+                width: 95%;
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<h2>Responsive Contact Section</h2>
-<p>Resize the browser window to see the effect.</p>
+    <div class="glass-container">
+        <header>
+            <h1>Alex Johnson</h1>
+            <p>Full-Stack Engineer | UX/UI & Graphics Designer</p>
+            <nav>
+                <a href="#about"><i class="fa-solid fa-circle-info"></i> About</a>
+                <a href="#engineering"><i class="fa-solid fa-code"></i> Engineering</a>
+                <a href="#design"><i class="fa-solid fa-palette"></i> Design</a>
+                <a href="#contact"><i class="fa-solid fa-paper-plane"></i> Contact</a>
+            </nav>
+        </header>
 
-<div class="container">
-  <div style="text-align:center">
-    <h2>Contact Us</h2>
-    <p>Swing by for a cup of coffee, or leave us a message:</p>
-  </div>
-  <div class="row">
-    <div class="column">
-      <img src="/w3images/map.jpg" style="width:100%">
+        <section id="about">
+            <h2><i class="fa-solid fa-globe"></i> About Me</h2>
+            <p>I thrive at the intersection of **logic and aesthetics**. My background allows me to not only build robust, scalable applications but also to design intuitive, beautiful user experiences. I bridge the gap between development teams and creative vision, ensuring products are both functional and visually compelling.</p>
+        </section>
+
+        <section id="engineering">
+            <h2><i class="fa-solid fa-gears"></i> Engineering Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <span class="badge engineer">FULL-STACK</span>
+                    <h3><i class="fa-solid fa-store"></i> E-commerce Microservice</h3>
+                    <p>Designed and deployed a resilient e-commerce platform using Python (Django) and React. Implemented a RESTful API and integrated Stripe for payment processing.</p>
+                    <span class="badge">Python</span>
+                    <span class="badge">Django</span>
+                    <span class="badge">PostgreSQL</span>
+                    <span class="badge">AWS</span>
+                </div>
+
+                <div class="project-card">
+                    <span class="badge engineer">DEVOPS</span>
+                    <h3><i class="fa-solid fa-truck-fast"></i> Automated CI/CD Pipeline</h3>
+                    <p>Reduced deployment time by 60% by creating a Jenkins-based CI/CD pipeline, automating testing and containerization with Docker and Kubernetes.</p>
+                    <span class="badge">Jenkins</span>
+                    <span class="badge">Docker</span>
+                    <span class="badge">Kubernetes</span>
+                    <span class="badge">Shell Script</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="design">
+            <h2><i class="fa-solid fa-brush"></i> Graphics & UX/UI Portfolio</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <span class="badge designer">UI/UX</span>
+                    <h3><i class="fa-solid fa-mobile-screen"></i> Mobile App Redesign</h3>
+                    <p>Conducted user research and created high-fidelity wireframes and prototypes in Figma for a finance tracking application, improving user retention by 15%.</p>
+                    <span class="badge">Figma</span>
+                    <span class="badge">Wireframing</span>
+                    <span class="badge">Prototyping</span>
+                    <span class="badge">User Flow</span>
+                </div>
+
+                <div class="project-card">
+                    <span class="badge designer">BRANDING</span>
+                    <h3><i class="fa-solid fa-lightbulb"></i> Startup Identity Kit</h3>
+                    <p>Developed a complete brand identity, including logo, color palette, typography guidelines, and marketing collateral for a new SaaS startup.</p>
+                    <span class="badge">Illustrator</span>
+                    <span class="badge">Photoshop</span>
+                    <span class="badge">Logo Design</span>
+                    <span class="badge">Print Ready</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2><i class="fa-solid fa-id-card"></i> Get In Touch</h2>
+            <p style="text-align: center;">Ready to discuss your next project? You can reach me at:</p>
+            <p style="text-align: center;">**Email:** <a href="mailto:alex@example.com" style="color: var(--primary-color);"><i class="fa-solid fa-envelope"></i> alex@example.com</a></p>
+            <p style="text-align: center;">**LinkedIn:** <a href="#" style="color: var(--primary-color);"><i class="fa-brands fa-linkedin"></i> /in/alexjohnsonhybrid</a></p>
+        </section>
     </div>
-    <div class="column">
-      <form action="/action_page.php">
-        <label for="fname">First Name</label>
-        <input type="text" id="fname" name="firstname" placeholder="Your name..">
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-        <label for="country">Country</label>
-        <select id="country" name="country">
-          <option value="australia">Australia</option>
-          <option value="canada">Canada</option>
-          <option value="usa">USA</option>
-        </select>
-        <label for="subject">Subject</label>
-        <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
-        <input type="submit" value="Submit">
-      </form>
-    </div>
-  </div>
-</div>
+
+    <footer>
+        <p>&copy; 2025 Alex Johnson Hybrid Portfolio | Built with Glassmorphism</p>
+    </footer>
 
 </body>
 </html>
