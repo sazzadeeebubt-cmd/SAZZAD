@@ -1,386 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hybrid Portfolio - Fully Responsive Glass Carousel</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        /* --- 1. GENERAL STYLES & BACKGROUND --- */
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --text-color: #ffffff;
-            --glass-bg: rgba(255, 255, 255, 0.1); 
-            --glass-border: rgba(255, 255, 255, 0.3);
-            --card-width: 350px; /* Default desktop card width */
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); 
-            color: var(--text-color);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 50px;
-        }
-
-        /* --- 2. GLASS EFFECT STYLING --- */
-        .glass-container {
-            background: var(--glass-bg);
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px); 
-            -webkit-backdrop-filter: blur(10px); 
-            padding: 30px;
-            margin: 20px;
-            width: 80%;
-            max-width: 1200px;
-        }
-
-        /* --- 3. LAYOUT & CONTENT STYLES --- */
-        header { text-align: center; margin-bottom: 40px; }
-        header h1 { font-size: 3em; margin-bottom: 5px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); }
-        header p { font-style: italic; opacity: 0.8; }
-
-        nav a { color: var(--text-color); text-decoration: none; margin: 0 15px; padding: 5px 10px; transition: color 0.3s; }
-        nav a:hover { color: var(--primary-color); }
-
-        section { padding: 40px 0; }
-
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--glass-border);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .fa-solid, .fa-brands { color: var(--primary-color); margin-right: 8px; }
-
-        .badge {
-            display: inline-block;
-            color: var(--text-color);
-            padding: 4px 8px;
-            border-radius: 5px;
-            font-size: 0.8em;
-            margin-right: 5px;
-            margin-bottom: 10px;
-        }
-
-        .engineer { background: #e74c3c; } 
-        .designer { background: #3498db; } 
-
-        .project-image-placeholder {
-            width: 100%;
-            height: 150px;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 10px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9em;
-            color: var(--glass-border);
-            border: 1px dashed var(--glass-border);
-        }
-
-        /* --- 4. CAROUSEL STYLING & HIDING SCROLLBAR --- */
-        .carousel-wrapper {
-            position: relative;
-            padding: 10px 0; 
-        }
-
-        .carousel-content {
-            display: flex;
-            overflow-x: scroll; 
-            scroll-snap-type: x mandatory; 
-            -webkit-overflow-scrolling: touch; 
-            gap: 20px;
-            padding-bottom: 5px; 
-            scroll-behavior: smooth; 
-        }
-        
-        /* Hide scrollbar for Chrome, Safari, Opera */
-        .carousel-content::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* Hide scrollbar for IE, Edge, and Firefox */
-        .carousel-content {
-            -ms-overflow-style: none; 
-            scrollbar-width: none;  
-        }
-
-        .project-card {
-            flex: 0 0 var(--card-width); /* Default desktop size */
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            scroll-snap-align: start; 
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: scale(1.02);
-        }
-
-        .project-card h3 {
-            color: var(--primary-color);
-            margin-top: 0;
-        }
-
-        footer {
-            margin-top: 55px;
-            padding: 20px;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.2);
-            width: 100%;
-        }
-
-        /* --- 5. RESPONSIVENESS (Mobile Optimization) --- */
-        @media (max-width: 992px) {
-            :root { --card-width: 320px; }
-            .glass-container { width: 90%; }
-        }
-        @media (max-width: 768px) {
-            :root { --card-width: 90vw; } /* Mobile: Card takes up 90% of the viewport width */
-            
-            .glass-container { 
-                width: 95%; 
-                padding: 20px; 
-                margin: 10px; /* Reduced margin */
-            }
-            
-            header h1 { font-size: 2.2em; }
-
-            nav a { 
-                display: block; /* Stack navigation links */
-                margin: 10px 0; 
-                padding: 5px 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sazzad Hossain | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { scroll-behavior: smooth; }
+  </style>
 </head>
-<body>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-black text-gray-100">
 
-    <div class="glass-container">
-        <header>
-            <h1>Alex Johnson</h1>
-            <p>Full-Stack Engineer | UX/UI & Graphics Designer</p>
-            <nav>
-                <a href="#about"><i class="fa-solid fa-circle-info"></i> About</a>
-                <a href="#engineering"><i class="fa-solid fa-code"></i> Engineering</a>
-                <a href="#design"><i class="fa-solid fa-palette"></i> Design</a>
-                <a href="#contact"><i class="fa-solid fa-paper-plane"></i> Contact</a>
-            </nav>
-        </header>
+  <!-- Container -->
+  <div class="max-w-6xl mx-auto px-4 py-10">
 
-        <section id="about">
-            <h2><i class="fa-solid fa-globe"></i> About Me</h2>
-            <p>I thrive at the intersection of **logic and aesthetics**. My background allows me to not only build robust, scalable applications but also to design intuitive, beautiful user experiences. I bridge the gap between development teams and creative vision, ensuring products are both functional and visually compelling.</p>
-        </section>
+    <!-- Hero Section -->
+    <section class="mb-16">
+      <div class="backdrop-blur-xl bg-white/5 rounded-3xl p-8 shadow-xl transition-all duration-500 hover:bg-white/10">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Sazzad Hossain</h1>
+        <p class="text-lg text-gray-300 mb-4">
+          Electrical & Electronics Engineer • Web Developer • Graphics Designer
+        </p>
+        <p class="text-gray-400 max-w-2xl">
+          Passionate about engineering and technology with hands-on experience in coding, electronics, and creative design. I enjoy building clean, functional web solutions and visually appealing designs.
+        </p>
+      </div>
+    </section>
 
-        <section id="engineering">
-            <h2><i class="fa-solid fa-gears"></i> Engineering Projects</h2>
-            <div class="carousel-wrapper">
-                <div class="carousel-content" id="engineering-carousel">
-                    
-                    <div class="project-card">
-                        <div class="project-image-placeholder">Placeholder: Code Snippet/Diagram</div>
-                        <span class="badge engineer">FULL-STACK</span>
-                        <h3>E-commerce Microservice</h3>
-                        <p>Designed a resilient e-commerce platform using Python (Django) and React.</p>
-                        <span class="badge">Python</span>
-                        <span class="badge">Django</span>
-                    </div>
+    <!-- Grid Section -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-                    <div class="project-card">
-                        <div class="project-image-placeholder">Placeholder: Architecture Flowchart</div>
-                        <span class="badge engineer">DEVOPS</span>
-                        <h3>Automated CI/CD Pipeline</h3>
-                        <p>Reduced deployment time by 60% with Jenkins-based CI/CD and Kubernetes.</p>
-                        <span class="badge">Jenkins</span>
-                        <span class="badge">Docker</span>
-                    </div>
+      <!-- Education -->
+      <div class="backdrop-blur-xl bg-white/5 rounded-2xl p-6 shadow-lg transition duration-500 hover:scale-[1.02]">
+        <h2 class="text-2xl font-semibold mb-4">Education</h2>
+        <ul class="space-y-4 text-gray-300">
+          <li>
+            <p class="font-medium">B.Sc. in Electrical & Electronics Engineering</p>
+            <p class="text-sm text-gray-400">Bangladesh University of Business & Technology (BUBT)</p>
+            <p class="text-sm text-gray-500">2020 – 2024</p>
+          </li>
+          <li>
+            <p class="font-medium">Diploma in Electronics Engineering</p>
+            <p class="text-sm text-gray-500">2014 – 2018</p>
+          </li>
+        </ul>
+      </div>
 
-                    <div class="project-card">
-                        <div class="project-image-placeholder">Placeholder: Database Schema</div>
-                        <span class="badge engineer">BACKEND</span>
-                        <h3>High-Load API Gateway</h3>
-                        <p>Built a high-performance, rate-limited API gateway using Node.js and Redis caching.</p>
-                        <span class="badge">Node.js</span>
-                        <span class="badge">Redis</span>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-image-placeholder">Placeholder: Mobile App Screenshot</div>
-                        <span class="badge engineer">MOBILE</span>
-                        <h3>Native iOS Health App</h3>
-                        <p>Developed a Swift-based health tracking application with Core Data persistence.</p>
-                        <span class="badge">Swift</span>
-                        <span class="badge">iOS</span>
-                    </div>
+      <!-- Skills -->
+      <div class="backdrop-blur-xl bg-white/5 rounded-2xl p-6 shadow-lg transition duration-500 hover:scale-[1.02]">
+        <h2 class="text-2xl font-semibold mb-4">Skills</h2>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-4 py-1 rounded-full bg-white/10 text-sm">HTML</span>
+          <span class="px-4 py-1 rounded-full bg-white/10 text-sm">JavaScript</span>
+          <span class="px-4 py-1 rounded-full bg-white/10 text-sm">Google Apps Script</span>
+          <span class="px-4 py-1 rounded-full bg-white/10 text-sm">C Programming</span>
+          <span class="px-4 py-1 rounded-full bg-white/10 text-sm">Adobe Photoshop</span>
+          <span class="px-4 py-1 rounded-full bg-white/10 text-sm">Adobe Illustrator</span>
+        </div>
+      </div>
 
-                    <div class="project-card">
-                        <div class="project-image-placeholder">Placeholder: Data Visualization</div>
-                        <span class="badge engineer">DATA SCI</span>
-                        <h3>ML-Driven Predictor</h3>
-                        <p>Created a predictive model using TensorFlow/Scikit-learn for stock market trends.</p>
-                        <span class="badge">Python</span>
-                        <span class="badge">TensorFlow</span>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
+      <!-- Interests -->
+      <div class="backdrop-blur-xl bg-white/5 rounded-2xl p-6 shadow-lg transition duration-500 hover:scale-[1.02]">
+        <h2 class="text-2xl font-semibold mb-4">Interests</h2>
+        <p class="text-gray-300">
+          Engineering problem-solving, web development, automation using scripts, UI design, branding, and modern digital creativity.
+        </p>
+      </div>
 
-        <section id="design">
-            <h2><i class="fa-solid fa-brush"></i> Graphics & UX/UI Portfolio</h2>
-            <div class="carousel-wrapper">
-                <div class="carousel-content" id="design-carousel">
-                    
-                    <div class="project-card">
-                        <div class="project-image-placeholder">Placeholder: Figma Prototype Mockup</div>
-                        <span class="badge designer">UI/UX</span>
-                        <h3>Mobile App Redesign</h3>
-                        <p>Created high-fidelity wireframes and prototypes in Figma for a finance app.</p>
-                        <span class="badge">Figma</span>
-                        <span class="badge">Prototyping</span>
-                    </div>
+      <!-- Contact -->
+      <div class="backdrop-blur-xl bg-white/5 rounded-2xl p-6 shadow-lg transition duration-500 hover:scale-[1.02]">
+        <h2 class="text-2xl font-semibold mb-4">Contact</h2>
+        <p class="text-gray-300 mb-2">📍 Bangladesh</p>
+        <p class="text-gray-300">📧 your-email@example.com</p>
+      </div>
 
-                    <div class="project-card">
-                        <div class="project-image-placeholder">Placeholder: Logo and Brand Guide</div>
-                        <span class="badge designer">BRANDING</span>
-                        <h3>Startup Identity Kit</h3>
-                        <p>Developed a complete brand identity, including logo, palette, and typography.</p>
-                        <span class="badge">Illustrator</span>
-                        <span class="badge">Logo Design</span>
-                    </div>
+    </section>
 
-                    <div class="project-card">
-                        <div class="project-image-placeholder">Placeholder: Web Layout Concept</div>
-                        <span class="badge designer">WEB DESIGN</span>
-                        <h3>E-learning Platform UI</h3>
-                        <p>Designed the responsive interface for a large-scale online learning management system.</p>
-                        <span class="badge">Sketch</span>
-                        <span class="badge">UX/UI</span>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-image-placeholder">Placeholder: Digital Painting/Concept Art</div>
-                        <span class="badge designer">GRAPHICS</span>
-                        <h3>Marketing Collateral</h3>
-                        <p>Produced a series of high-impact digital graphics for social media campaigns.</p>
-                        <span class="badge">Photoshop</span>
-                        <span class="badge">InDesign</span>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-image-placeholder">Placeholder: Icon Set Preview</div>
-                        <span class="badge designer">ICONOGRAPHY</span>
-                        <h3>Custom Icon Set</h3>
-                        <p>Designed a custom vector icon set adhering to Google Material Design principles.</p>
-                        <span class="badge">Vector Art</span>
-                        <span class="badge">Design System</span>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2><i class="fa-solid fa-id-card"></i> Get In Touch</h2>
-            <p style="text-align: center;">Ready to discuss your next project? You can reach me at:</p>
-            <p style="text-align: center;">**Email:** <a href="mailto:alex@example.com" style="color: var(--primary-color);"><i class="fa-solid fa-envelope"></i> alex@example.com</a></p>
-            <p style="text-align: center;">**LinkedIn:** <a href="#" style="color: var(--primary-color);"><i class="fa-brands fa-linkedin"></i> /in/alexjohnsonhybrid</a></p>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Alex Johnson Hybrid Portfolio | Built with Glassmorphism</p>
+    <!-- Footer -->
+    <footer class="mt-16 text-center text-gray-500 text-sm">
+      © 2025 Sazzad Hossain. All rights reserved.
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const engineeringCarousel = document.getElementById('engineering-carousel');
-            const designCarousel = document.getElementById('design-carousel');
-            const slideInterval = 4000; // 4 seconds
-
-            /**
-             * Function to manage the auto-slide for a given carousel element.
-             * @param {HTMLElement} carousel - The carousel container element.
-             */
-            function startAutoSlide(carousel) {
-                if (!carousel || carousel.children.length === 0) return;
-
-                let currentScroll = 0;
-                let lastSlideTime = performance.now();
-                
-                // Function to dynamically get the width of the first card plus the gap (20px)
-                function getSlideDistance() {
-                    // Check if the card element exists
-                    if (carousel.children[0]) {
-                        // offsetWidth gives the width including padding/border, but not margin/gap
-                        // We manually add the 20px gap defined in the CSS
-                        return carousel.children[0].offsetWidth + 20; 
-                    }
-                    // Fallback to the largest desktop size
-                    return 370; 
-                }
-
-                function slide(timestamp) {
-                    const elapsed = timestamp - lastSlideTime;
-
-                    if (elapsed >= slideInterval) {
-                        const slideDistance = getSlideDistance();
-                        
-                        // Calculate next scroll position
-                        currentScroll += slideDistance;
-
-                        // Check for wrap-around condition (End of carousel)
-                        // Use a small tolerance (e.g., 5px) to account for floating point errors
-                        if (currentScroll >= carousel.scrollWidth - carousel.clientWidth - 5) {
-                            // Loop back to the beginning
-                            currentScroll = 0; 
-                        }
-                        
-                        // Apply the scroll with smooth behavior (CSS property)
-                        carousel.scrollTo({
-                            left: currentScroll,
-                            behavior: 'smooth' 
-                        });
-
-                        lastSlideTime = timestamp;
-                    }
-
-                    requestAnimationFrame(slide);
-                }
-
-                // Start the animation loop
-                requestAnimationFrame(slide);
-
-                // Pause on hover (important for desktop UX)
-                carousel.addEventListener('mouseenter', () => {
-                    // Reset timer on mouse entry
-                    lastSlideTime = performance.now();
-                });
-            }
-
-            // Initialize both carousels
-            startAutoSlide(engineeringCarousel);
-            startAutoSlide(designCarousel);
-        });
-    </script>
+  </div>
 
 </body>
 </html>
