@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hybrid Portfolio - Glassmorphism</title>
+    <title>Hybrid Portfolio - Fully Responsive Glass Carousel</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
@@ -13,15 +13,16 @@
             --primary-color: #007bff;
             --secondary-color: #6c757d;
             --text-color: #ffffff;
-            --glass-bg: rgba(255, 255, 255, 0.1); /* Lighter for glass effect */
+            --glass-bg: rgba(255, 255, 255, 0.1); 
             --glass-border: rgba(255, 255, 255, 0.3);
+            --card-width: 350px; /* Default desktop card width */
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Deep Blue Gradient */
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); 
             color: var(--text-color);
             min-height: 100vh;
             display: flex;
@@ -30,58 +31,29 @@
             padding-top: 50px;
         }
 
-        /* --- 2. GLASS EFFECT STYLING (THE CORE) --- */
+        /* --- 2. GLASS EFFECT STYLING --- */
         .glass-container {
             background: var(--glass-bg);
             border-radius: 20px;
             border: 1px solid var(--glass-border);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px); /* THE KEY GLASS EFFECT PROPERTY */
-            -webkit-backdrop-filter: blur(10px); /* Safari support */
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px); 
             padding: 30px;
             margin: 20px;
             width: 80%;
-            max-width: 1100px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .glass-container:hover {
-            transform: translateY(-5px); /* Subtle hover effect */
+            max-width: 1200px;
         }
 
         /* --- 3. LAYOUT & CONTENT STYLES --- */
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+        header { text-align: center; margin-bottom: 40px; }
+        header h1 { font-size: 3em; margin-bottom: 5px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); }
+        header p { font-style: italic; opacity: 0.8; }
 
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 5px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        }
+        nav a { color: var(--text-color); text-decoration: none; margin: 0 15px; padding: 5px 10px; transition: color 0.3s; }
+        nav a:hover { color: var(--primary-color); }
 
-        header p {
-            font-style: italic;
-            opacity: 0.8;
-        }
-
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin: 0 15px;
-            padding: 5px 10px;
-            border-bottom: 2px solid transparent;
-            transition: border-bottom 0.3s;
-        }
-
-        nav a:hover {
-            border-bottom: 2px solid var(--primary-color);
-        }
-
-        section {
-            padding: 40px 0;
-        }
+        section { padding: 40px 0; }
 
         h2 {
             color: var(--primary-color);
@@ -91,29 +63,7 @@
             text-align: center;
         }
         
-        /* Style for the Font Awesome Icons */
-        .fa-solid, .fa-brands {
-            color: var(--primary-color); /* Apply primary color to the icon */
-            margin-right: 8px;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .project-card h3 {
-            color: var(--primary-color);
-            margin-top: 0;
-        }
+        .fa-solid, .fa-brands { color: var(--primary-color); margin-right: 8px; }
 
         .badge {
             display: inline-block;
@@ -125,8 +75,69 @@
             margin-bottom: 10px;
         }
 
-        .engineer { background: #e74c3c; } /* Red for Engineering */
-        .designer { background: #3498db; } /* Blue for Design */
+        .engineer { background: #e74c3c; } 
+        .designer { background: #3498db; } 
+
+        .project-image-placeholder {
+            width: 100%;
+            height: 150px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+            color: var(--glass-border);
+            border: 1px dashed var(--glass-border);
+        }
+
+        /* --- 4. CAROUSEL STYLING & HIDING SCROLLBAR --- */
+        .carousel-wrapper {
+            position: relative;
+            padding: 10px 0; 
+        }
+
+        .carousel-content {
+            display: flex;
+            overflow-x: scroll; 
+            scroll-snap-type: x mandatory; 
+            -webkit-overflow-scrolling: touch; 
+            gap: 20px;
+            padding-bottom: 5px; 
+            scroll-behavior: smooth; 
+        }
+        
+        /* Hide scrollbar for Chrome, Safari, Opera */
+        .carousel-content::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge, and Firefox */
+        .carousel-content {
+            -ms-overflow-style: none; 
+            scrollbar-width: none;  
+        }
+
+        .project-card {
+            flex: 0 0 var(--card-width); /* Default desktop size */
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            scroll-snap-align: start; 
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.02);
+        }
+
+        .project-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
 
         footer {
             margin-top: 55px;
@@ -136,20 +147,26 @@
             width: 100%;
         }
 
-        /* --- 4. RESPONSIVENESS --- */
+        /* --- 5. RESPONSIVENESS (Mobile Optimization) --- */
+        @media (max-width: 992px) {
+            :root { --card-width: 320px; }
+            .glass-container { width: 90%; }
+        }
         @media (max-width: 768px) {
-            .glass-container {
-                width: 95%;
-                padding: 20px;
+            :root { --card-width: 90vw; } /* Mobile: Card takes up 90% of the viewport width */
+            
+            .glass-container { 
+                width: 95%; 
+                padding: 20px; 
+                margin: 10px; /* Reduced margin */
             }
+            
+            header h1 { font-size: 2.2em; }
 
-            header h1 {
-                font-size: 2em;
-            }
-
-            nav a {
-                display: block;
-                margin: 10px 0;
+            nav a { 
+                display: block; /* Stack navigation links */
+                margin: 10px 0; 
+                padding: 5px 0;
             }
         }
     </style>
@@ -175,50 +192,108 @@
 
         <section id="engineering">
             <h2><i class="fa-solid fa-gears"></i> Engineering Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <span class="badge engineer">FULL-STACK</span>
-                    <h3><i class="fa-solid fa-store"></i> E-commerce Microservice</h3>
-                    <p>Designed and deployed a resilient e-commerce platform using Python (Django) and React. Implemented a RESTful API and integrated Stripe for payment processing.</p>
-                    <span class="badge">Python</span>
-                    <span class="badge">Django</span>
-                    <span class="badge">PostgreSQL</span>
-                    <span class="badge">AWS</span>
-                </div>
+            <div class="carousel-wrapper">
+                <div class="carousel-content" id="engineering-carousel">
+                    
+                    <div class="project-card">
+                        <div class="project-image-placeholder">Placeholder: Code Snippet/Diagram</div>
+                        <span class="badge engineer">FULL-STACK</span>
+                        <h3>E-commerce Microservice</h3>
+                        <p>Designed a resilient e-commerce platform using Python (Django) and React.</p>
+                        <span class="badge">Python</span>
+                        <span class="badge">Django</span>
+                    </div>
 
-                <div class="project-card">
-                    <span class="badge engineer">DEVOPS</span>
-                    <h3><i class="fa-solid fa-truck-fast"></i> Automated CI/CD Pipeline</h3>
-                    <p>Reduced deployment time by 60% by creating a Jenkins-based CI/CD pipeline, automating testing and containerization with Docker and Kubernetes.</p>
-                    <span class="badge">Jenkins</span>
-                    <span class="badge">Docker</span>
-                    <span class="badge">Kubernetes</span>
-                    <span class="badge">Shell Script</span>
+                    <div class="project-card">
+                        <div class="project-image-placeholder">Placeholder: Architecture Flowchart</div>
+                        <span class="badge engineer">DEVOPS</span>
+                        <h3>Automated CI/CD Pipeline</h3>
+                        <p>Reduced deployment time by 60% with Jenkins-based CI/CD and Kubernetes.</p>
+                        <span class="badge">Jenkins</span>
+                        <span class="badge">Docker</span>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image-placeholder">Placeholder: Database Schema</div>
+                        <span class="badge engineer">BACKEND</span>
+                        <h3>High-Load API Gateway</h3>
+                        <p>Built a high-performance, rate-limited API gateway using Node.js and Redis caching.</p>
+                        <span class="badge">Node.js</span>
+                        <span class="badge">Redis</span>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image-placeholder">Placeholder: Mobile App Screenshot</div>
+                        <span class="badge engineer">MOBILE</span>
+                        <h3>Native iOS Health App</h3>
+                        <p>Developed a Swift-based health tracking application with Core Data persistence.</p>
+                        <span class="badge">Swift</span>
+                        <span class="badge">iOS</span>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image-placeholder">Placeholder: Data Visualization</div>
+                        <span class="badge engineer">DATA SCI</span>
+                        <h3>ML-Driven Predictor</h3>
+                        <p>Created a predictive model using TensorFlow/Scikit-learn for stock market trends.</p>
+                        <span class="badge">Python</span>
+                        <span class="badge">TensorFlow</span>
+                    </div>
+                    
                 </div>
             </div>
         </section>
 
         <section id="design">
             <h2><i class="fa-solid fa-brush"></i> Graphics & UX/UI Portfolio</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <span class="badge designer">UI/UX</span>
-                    <h3><i class="fa-solid fa-mobile-screen"></i> Mobile App Redesign</h3>
-                    <p>Conducted user research and created high-fidelity wireframes and prototypes in Figma for a finance tracking application, improving user retention by 15%.</p>
-                    <span class="badge">Figma</span>
-                    <span class="badge">Wireframing</span>
-                    <span class="badge">Prototyping</span>
-                    <span class="badge">User Flow</span>
-                </div>
+            <div class="carousel-wrapper">
+                <div class="carousel-content" id="design-carousel">
+                    
+                    <div class="project-card">
+                        <div class="project-image-placeholder">Placeholder: Figma Prototype Mockup</div>
+                        <span class="badge designer">UI/UX</span>
+                        <h3>Mobile App Redesign</h3>
+                        <p>Created high-fidelity wireframes and prototypes in Figma for a finance app.</p>
+                        <span class="badge">Figma</span>
+                        <span class="badge">Prototyping</span>
+                    </div>
 
-                <div class="project-card">
-                    <span class="badge designer">BRANDING</span>
-                    <h3><i class="fa-solid fa-lightbulb"></i> Startup Identity Kit</h3>
-                    <p>Developed a complete brand identity, including logo, color palette, typography guidelines, and marketing collateral for a new SaaS startup.</p>
-                    <span class="badge">Illustrator</span>
-                    <span class="badge">Photoshop</span>
-                    <span class="badge">Logo Design</span>
-                    <span class="badge">Print Ready</span>
+                    <div class="project-card">
+                        <div class="project-image-placeholder">Placeholder: Logo and Brand Guide</div>
+                        <span class="badge designer">BRANDING</span>
+                        <h3>Startup Identity Kit</h3>
+                        <p>Developed a complete brand identity, including logo, palette, and typography.</p>
+                        <span class="badge">Illustrator</span>
+                        <span class="badge">Logo Design</span>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image-placeholder">Placeholder: Web Layout Concept</div>
+                        <span class="badge designer">WEB DESIGN</span>
+                        <h3>E-learning Platform UI</h3>
+                        <p>Designed the responsive interface for a large-scale online learning management system.</p>
+                        <span class="badge">Sketch</span>
+                        <span class="badge">UX/UI</span>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image-placeholder">Placeholder: Digital Painting/Concept Art</div>
+                        <span class="badge designer">GRAPHICS</span>
+                        <h3>Marketing Collateral</h3>
+                        <p>Produced a series of high-impact digital graphics for social media campaigns.</p>
+                        <span class="badge">Photoshop</span>
+                        <span class="badge">InDesign</span>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image-placeholder">Placeholder: Icon Set Preview</div>
+                        <span class="badge designer">ICONOGRAPHY</span>
+                        <h3>Custom Icon Set</h3>
+                        <p>Designed a custom vector icon set adhering to Google Material Design principles.</p>
+                        <span class="badge">Vector Art</span>
+                        <span class="badge">Design System</span>
+                    </div>
+                    
                 </div>
             </div>
         </section>
@@ -234,6 +309,78 @@
     <footer>
         <p>&copy; 2025 Alex Johnson Hybrid Portfolio | Built with Glassmorphism</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const engineeringCarousel = document.getElementById('engineering-carousel');
+            const designCarousel = document.getElementById('design-carousel');
+            const slideInterval = 4000; // 4 seconds
+
+            /**
+             * Function to manage the auto-slide for a given carousel element.
+             * @param {HTMLElement} carousel - The carousel container element.
+             */
+            function startAutoSlide(carousel) {
+                if (!carousel || carousel.children.length === 0) return;
+
+                let currentScroll = 0;
+                let lastSlideTime = performance.now();
+                
+                // Function to dynamically get the width of the first card plus the gap (20px)
+                function getSlideDistance() {
+                    // Check if the card element exists
+                    if (carousel.children[0]) {
+                        // offsetWidth gives the width including padding/border, but not margin/gap
+                        // We manually add the 20px gap defined in the CSS
+                        return carousel.children[0].offsetWidth + 20; 
+                    }
+                    // Fallback to the largest desktop size
+                    return 370; 
+                }
+
+                function slide(timestamp) {
+                    const elapsed = timestamp - lastSlideTime;
+
+                    if (elapsed >= slideInterval) {
+                        const slideDistance = getSlideDistance();
+                        
+                        // Calculate next scroll position
+                        currentScroll += slideDistance;
+
+                        // Check for wrap-around condition (End of carousel)
+                        // Use a small tolerance (e.g., 5px) to account for floating point errors
+                        if (currentScroll >= carousel.scrollWidth - carousel.clientWidth - 5) {
+                            // Loop back to the beginning
+                            currentScroll = 0; 
+                        }
+                        
+                        // Apply the scroll with smooth behavior (CSS property)
+                        carousel.scrollTo({
+                            left: currentScroll,
+                            behavior: 'smooth' 
+                        });
+
+                        lastSlideTime = timestamp;
+                    }
+
+                    requestAnimationFrame(slide);
+                }
+
+                // Start the animation loop
+                requestAnimationFrame(slide);
+
+                // Pause on hover (important for desktop UX)
+                carousel.addEventListener('mouseenter', () => {
+                    // Reset timer on mouse entry
+                    lastSlideTime = performance.now();
+                });
+            }
+
+            // Initialize both carousels
+            startAutoSlide(engineeringCarousel);
+            startAutoSlide(designCarousel);
+        });
+    </script>
 
 </body>
 </html>
