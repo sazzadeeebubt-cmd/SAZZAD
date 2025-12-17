@@ -10,16 +10,16 @@
   </style>
 </head>
 
-<body class="min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-black text-gray-100 py-10">
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-black text-gray-100">
 
 <div class="max-w-6xl mx-auto px-4 py-10">
 
-  <!-- Hero -->
-  <section class="mb-8">
+  <!-- HERO -->
+  <section class="mb-12">
     <div class="relative text-center backdrop-blur-xl bg-white/5 rounded-3xl p-8 pt-20 shadow-xl">
       <div class="absolute -top-14 left-1/2 -translate-x-1/2">
         <img src="sazzad.jpg"
-          class="w-28 h-28 rounded-full border-4 border-white/20 shadow-lg">
+          class="w-28 h-28 rounded-full border-4 border-white/20 shadow-lg object-cover">
       </div>
       <h1 class="text-4xl font-bold mt-6">Sazzad Hossain</h1>
       <p class="text-gray-300 mt-2">
@@ -28,24 +28,29 @@
     </div>
   </section>
 
-  <!-- Grid -->
+  <!-- INFO GRID -->
   <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
-  
-      <!-- About me -->
-    <div class="backdrop-blur-xl bg-white/5 rounded-2xl p-6 shadow-lg">
-      <h2 class="text-2xl font-semibold mb-4">About me</h2>
-      <p class="text-gray-300">B.Sc. in EEE – BUBT</p>
+
+    <!-- ABOUT -->
+    <div class="backdrop-blur-xl bg-white/5 rounded-2xl p-6 shadow-lg md:col-span-2">
+      <h2 class="text-2xl font-semibold mb-3">About Me</h2>
+      <p class="text-gray-300">
+        I am a passionate Electrical & Electronics Engineering graduate with strong
+        interest in web development, automation, and creative design.
+        I enjoy building clean, modern, and user-friendly digital solutions.
+      </p>
     </div>
 
-    <!-- Education -->
+    <!-- EDUCATION -->
     <div class="backdrop-blur-xl bg-white/5 rounded-2xl p-6 shadow-lg">
-      <h2 class="text-2xl font-semibold mb-4">Education</h2>
-      <p class="text-gray-300">B.Sc. in EEE – BUBT</p>
+      <h2 class="text-2xl font-semibold mb-3">Education</h2>
+      <p class="text-gray-300 font-medium">B.Sc. in Electrical & Electronics Engineering</p>
+      <p class="text-gray-400 text-sm">Bangladesh University of Business & Technology (BUBT)</p>
     </div>
 
-    <!-- Skills -->
+    <!-- SKILLS -->
     <div class="backdrop-blur-xl bg-white/5 rounded-2xl p-6 shadow-lg">
-      <h2 class="text-2xl font-semibold mb-4">Skills</h2>
+      <h2 class="text-2xl font-semibold mb-3">Skills</h2>
       <div class="flex flex-wrap gap-2">
         <span class="px-4 py-1 bg-white/10 rounded-full text-sm">HTML</span>
         <span class="px-4 py-1 bg-white/10 rounded-full text-sm">JavaScript</span>
@@ -54,74 +59,65 @@
       </div>
     </div>
 
-    <!-- Interests -->
+    <!-- INTERESTS -->
     <div class="backdrop-blur-xl bg-white/5 rounded-2xl p-6 shadow-lg md:col-span-2">
-      <h2 class="text-2xl font-semibold mb-4">Interests</h2>
+      <h2 class="text-2xl font-semibold mb-3">Interests</h2>
       <p class="text-gray-300">
-        Web development, automation, UI design, branding and modern technology.
+        Web development, automation, UI/UX design, branding,
+        scripting, and modern digital technologies.
       </p>
     </div>
 
   </section>
 
-  <!-- BLOG SECTION -->
+  <!-- BLOG -->
   <section class="mt-16">
     <h2 class="text-3xl font-bold mb-6 text-center">Blog Posts</h2>
-
     <div id="posts" class="space-y-6"></div>
-
-    <!-- Pagination -->
     <div class="flex justify-center mt-6 space-x-2" id="pagination"></div>
   </section>
-  
-  <!-- CONTACT SECTION -->
-<section class="mt-16">
-  <h2 class="text-3xl font-bold mb-6 text-center">Contact Me</h2>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <!-- CONTACT -->
+  <section class="mt-2">
+    <h2 class="text-3xl font-bold mb-6 text-center">Contact Me</h2>
 
-    <!-- Contact Info -->
-    <div class="backdrop-blur-xl bg-white/5 rounded-2xl p-6 shadow-lg">
-      <h3 class="text-xl font-semibold mb-1">Get in Touch</h3>
-
-      <p class="text-gray-300 mb-1">
-        📍 Dhaka, Bangladesh
-      </p>
-
-      <p class="text-gray-300 mb-1">
+    <div class="backdrop-blur-xl bg-white/5 rounded-2xl p-6 shadow-lg md:col-span-2">
+      <p class="text-gray-300 mb-2">📍 Dhaka, Bangladesh</p>
+      <p class="text-gray-300 mb-2">
         📞 <a href="tel:+8801743437772" class="hover:text-blue-400">
           +880 1743 43 77 72
         </a>
       </p>
-
-      <p class="text-gray-300 mb-1">
+      <p class="text-gray-300 mb-4">
         ✉️ <a href="mailto:sazzad.eee.bubt@gmail.com" class="hover:text-blue-400">
           sazzad.eee.bubt@gmail.com
         </a>
       </p>
-
-      <p class="text-gray-400 text-sm mt-4">
-        Feel free to contact me for freelance work, collaborations, or any professional inquiries.
+      <p class="text-gray-400 text-sm">
+        Available for freelance work, collaborations, and professional opportunities.
       </p>
     </div>
-  </div>
-</section>
+  </section>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="mt-16 text-center text-gray-500 text-sm">
     © 2025 Sazzad Hossain. All rights reserved.
   </footer>
+
 </div>
 
 <!-- FLOAT BUTTON -->
 <button onclick="openModal()"
-  class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 text-3xl shadow-lg">
+  class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 text-3xl shadow-lg z-40">
   +
 </button>
 
 <!-- MODAL -->
-<div id="modal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-  <div class="bg-slate-900 p-6 rounded-2xl w-full max-w-md shadow-xl">
+<div id="modal" onclick="closeModal()"
+  class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+  <div onclick="event.stopPropagation()"
+    class="bg-slate-900 p-6 rounded-2xl w-full max-w-md shadow-xl">
+
     <h3 class="text-xl font-semibold mb-4">Add Blog Post</h3>
 
     <input id="title" class="w-full mb-2 p-2 rounded bg-white/10" placeholder="Title">
@@ -156,7 +152,9 @@ function render() {
     posts.slice(start, end).map(p => `
       <div class="backdrop-blur-xl bg-white/5 p-6 rounded-2xl shadow-lg">
         <h3 class="text-xl font-semibold">${p.title}</h3>
-        <p class="text-sm text-gray-400">${new Date(p.date).toLocaleDateString()} • ${p.author}</p>
+        <p class="text-sm text-gray-400">
+          ${new Date(p.date).toLocaleDateString()} • ${p.author}
+        </p>
         <p class="mt-3 text-gray-300">${p.content}</p>
       </div>
     `).join("");
@@ -180,14 +178,19 @@ function go(p) {
 }
 
 function openModal() {
-  document.getElementById("modal").classList.remove("hidden");
+  modal.classList.remove("hidden");
 }
 
 function closeModal() {
-  document.getElementById("modal").classList.add("hidden");
+  modal.classList.add("hidden");
 }
 
 async function submitPost() {
+  if (!title.value || !content.value || !author.value || !password.value) {
+    alert("All fields are required");
+    return;
+  }
+
   const fd = new URLSearchParams();
   fd.append("title", title.value);
   fd.append("content", content.value);
@@ -199,6 +202,7 @@ async function submitPost() {
 
   if (text === "Success") {
     closeModal();
+    title.value = content.value = author.value = password.value = "";
     loadPosts();
   } else {
     alert("Wrong password");
